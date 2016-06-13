@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Show your support for those in the LGBTQ community by changing your profile picture on Facebook.">
+
+    <title>Proud Forever | Cub in Training</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="fa-snapchat.css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Palanquin:600,300,400' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <h1 style="margin-top:10px; margin-left:5px"><span class="light">Proud</span> Forever</h1>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    <div class="container" style="margin-top:50px">
+            <div class="text-center">
+            <h2>Change Your Profile Picture</h2>
+                <p>The LGBTQ community is one of the most diverse communities in the world.</p>
+                
+                <p>We come from all areas of life. We all have broad interests, but most importantly, we are all united. In times of darkness, light will alway prevail. In times of sadness, we come together as one, proud forever.</p>
+                    
+                <p>To change your Facebook profile picture, please select an overlay option below, and click the "Change Picture" button to continue.</p>
+                <div class="row">
+                    <div class="col-sm-4" style="margin-bottom:10px">
+                        <img src="ally.png" width="35%"><br>
+                        Ally <br>
+                        <input type="radio" name="pride" value="ally-overlay.png">
+                    </div>
+                    <div class="col-sm-4" style="margin-bottom:10px">
+                        <img src="bi.png" width="35%"><br>
+                        Bisexual Pride<br>
+                        <input type="radio" name="pride" value="bi-overlay.png">
+                    </div>
+                    <div class="col-sm-4" style="margin-bottom:10px">
+                        <img src="trans.png" width="35%"><br>
+                        Transgender Pride<br>
+                        <input type="radio" name="pride" value="trans-overlay.png">
+                    </div>
+                    <div class="col-sm-4" style="margin-bottom:10px">
+                        <img src="leather.png" width="35%"><br>
+                        Leather Pride <br>
+                        <input type="radio" name="pride" value="leather-overlay.png">
+                    </div>
+                    <div class="col-sm-offset-4 col-sm-4" style="margin-bottom:10px">
+                        <img src="bear-pride.png" width="35%"><br>
+                        Bear Pride <br>
+                        <input type="radio" name="pride" value="bear-overlay.png">
+                    </div>
+                </div>
+            <button type="button" onclick="login()" data-toggle="modal" data-target="#profile-pic-modal" class="btn btn-primary" style="margin-bottom: 0px; margin-top: 20px"><i class="fa fa-facebook-official"></i> Change Picture</button>
+            <div id="profile-pic-modal" class="modal modal-lg modal-center fade" role="dialog">
+                <script src="profile-pic.js"></script>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Change Your Profile Picture</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div id="loading" class="col-xs-4 col-xs-offset-4">
+                                <i class="fa fa-spinner fa-3x fa-spin"></i>
+                                <center style="margin-top:5px">Loading...</center>
+                            </div>
+                            <div hidden id="not-authorized">
+                                <center><p style="padding: 5px">Please authorize the Proud Forever application on Facebook to change your profile picture.</p></center>
+                            </div>
+                        </div>
+                        <center id="pic-holder" hidden>
+                            <img id="profile-pic" class="profile-overlay">
+                        </center>
+
+                        <center id="comment-holder" hidden>
+                            <p>Say something about why you support the LGBTQ community.</p>
+                            <textarea id="comment" rows=3 cols=25></textarea>
+                        </center>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="upload-button" disabled onclick="upload()" type="button" class="btn btn-default" data-dismiss="modal">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <center><a href="privacypolicy.html" class="btn">Privacy Policy</a></center>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+    
+    <script src="profile-pic.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+    </script>
+</body>
+
+</html>
